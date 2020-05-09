@@ -12,7 +12,7 @@ test('sort tobe mistake', () => {
     { name: 'мечник', health: 10 },
   ];
   const result = sortUnits(a);
-  expect(result).toBe(b);
+  expect(result).not.toBe(b);
 });
 
 test('sort toEqual success', () => {
