@@ -4,41 +4,41 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   output: {
-	  path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
-	  rules: [
+    rules: [
       {
-		  test: /\.js$/,
-		  exclude: /node_modules/,
-		  use: {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
           loader: 'babel-loader',
-		  },
+        },
       },
       {
-		  test: /\.html$/,
-		  use: [
+        test: /\.html$/,
+        use: [
           {
-			  loader: 'html-loader',
+            loader: 'html-loader',
           },
-		  ],
+        ],
       },
       {
-		  test: /\.css$/,
-		  use: [
+        test: /\.css$/,
+        use: [
           MiniCssExtractPlugin.loader, 'css-loader',
-		  ],
+        ],
       },
-	  ],
+    ],
   },
   plugins: [
-	  new HtmlWebPackPlugin({
+    new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-	  }),
-	  new MiniCssExtractPlugin({
+    }),
+    new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
-	  }),
+    }),
   ],
 };
